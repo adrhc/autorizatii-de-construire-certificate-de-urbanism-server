@@ -5,6 +5,8 @@ logging.level.ro.go.adrhc: DEBUG
 feign.client.config.default.loggerLevel: BASIC
 #logging.file.name: m3u8-playlists-manager.log
 
+server.port: 8084
+
 #index:
 #  path: ${user.home}/index-autorizatii-de-construire-certificate-de-urbanism
 
