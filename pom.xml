@@ -15,7 +15,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>adrhc.go.ro</groupId>
+    <groupId>ro.go.adrhc</groupId>
     <artifactId>autorizatii-de-construire-certificate-de-urbanism-server</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -43,7 +43,19 @@
             <exclusions>
                 <exclusion>
                     <groupId>org.springframework.shell</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.shell</groupId>
                     <artifactId>spring-shell-starter</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.shell</groupId>
+                    <artifactId>spring-shell-autoconfigure</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.shell</groupId>
+                    <artifactId>spring-shell-core</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -96,13 +108,6 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.shell</groupId>
-                <artifactId>spring-shell-dependencies</artifactId>
-                <version>${spring-shell.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
