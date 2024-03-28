@@ -2,12 +2,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!--<parent>
+    <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.0</version>
-        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;
-    </parent>-->
+        <version>3.2.4</version>
+        <relativePath/> <!--lookup parent from repository-->
+    </parent>
 
     <groupId>ro.go.adrhc</groupId>
     <artifactId>autorizatii-de-construire-certificate-de-urbanism-server</artifactId>
@@ -26,7 +26,6 @@
         <maven-surefire-failsafe-plugin.version>3.1.2</maven-surefire-failsafe-plugin.version>
         <!--<org.mapstruct.version>1.5.2.Final</org.mapstruct.version>-->
         <spring-cloud.version>2022.0.3</spring-cloud.version>
-        <spring-boot.version>3.2.4</spring-boot.version>
     </properties>
 
     <dependencies>
@@ -81,13 +80,13 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
+            <!--<dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
+                <version>3.2.4</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
+            </dependency>-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -103,7 +102,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring-boot.version}</version>
                 <configuration>
                     <excludes>
                         <exclude>
