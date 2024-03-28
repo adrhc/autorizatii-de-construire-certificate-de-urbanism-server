@@ -23,12 +23,13 @@ public class BuildAuthzSearchController {
 
     @GetMapping("search")
     public List<String> search(@RequestParam String query) throws IOException {
+        log.info("\nsearching for: {}", query);
         return searcher.search(query).stream().map(UrlContentIndexRecord::url).sorted().toList();
     }
 
     @RequestMapping("update")
     public void update() {
         indexService.updateIndex();
-        log.info("Index updated!");
+        log.info("\nIndex updated!");
     }
 }
