@@ -26,6 +26,7 @@
         <maven-surefire-failsafe-plugin.version>3.1.2</maven-surefire-failsafe-plugin.version>
         <!--<org.mapstruct.version>1.5.2.Final</org.mapstruct.version>-->
         <spring-cloud.version>2022.0.3</spring-cloud.version>
+        <spring-boot.version>3.2.4</spring-boot.version>
     </properties>
 
     <dependencies>
@@ -83,7 +84,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>3.2.4</version>
+                <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -102,6 +103,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
                 <configuration>
                     <excludes>
                         <exclude>
@@ -114,7 +116,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <!--                <version>3.11.0</version>-->
+                <!--<version>3.11.0</version>-->
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
