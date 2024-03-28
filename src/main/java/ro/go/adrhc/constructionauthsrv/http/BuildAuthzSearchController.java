@@ -7,18 +7,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ro.go.adrhc.constructionauth.datasource.index.UrlContentIndexRecord;
 import ro.go.adrhc.constructionauth.datasource.index.UrlContentIndexSearcher;
+import ro.go.adrhc.constructionauth.datasource.index.UrlContentIndexService;
 
 import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/search")
+@RequestMapping("/api")
 @RequiredArgsConstructor
 public class BuildAuthzSearchController {
     private final UrlContentIndexSearcher searcher;
+    private final UrlContentIndexService indexService;
 
-    @GetMapping
+    @GetMapping("search")
     public List<String> search(@RequestParam String query) throws IOException {
         return searcher.search(query).stream().map(UrlContentIndexRecord::url).sorted().toList();
+    }
+
+    @RequestMapping("update")
+    public void update() {
+        indexService.updateIndex();
     }
 }
