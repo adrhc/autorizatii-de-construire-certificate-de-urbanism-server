@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ro.go.adrhc.constructionauth.datasource.index.UrlContentIndexRecord;
-import ro.go.adrhc.constructionauth.datasource.index.UrlContentIndexSearcher;
 import ro.go.adrhc.constructionauth.datasource.index.UrlContentIndexService;
+import ro.go.adrhc.constructionauthsrv.datasource.SearchType;
+import ro.go.adrhc.constructionauthsrv.datasource.SearchTypeAwareUrlContentIndexSearcher;
 
 import java.io.IOException;
 import java.util.List;
@@ -18,13 +19,14 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 public class BuildAuthzSearchController {
-    private final UrlContentIndexSearcher searcher;
+    private final SearchTypeAwareUrlContentIndexSearcher searcher;
     private final UrlContentIndexService indexService;
 
     @GetMapping("search")
-    public List<String> search(@RequestParam String query) throws IOException {
-        log.info("\nsearching for: {}", query);
-        return searcher.search(query).stream().map(UrlContentIndexRecord::url).sorted().toList();
+    public List<String> search(@RequestParam String query,
+            @RequestParam(defaultValue = "SMALL") SearchType type) throws IOException {
+        log.info("\nsearching {} for: {}", type, query);
+        return searcher.search(type, query).stream().map(UrlContentIndexRecord::url).sorted().toList();
     }
 
     @RequestMapping("update")
