@@ -32,6 +32,6 @@ public class BuildAuthzSearchController {
     @RequestMapping("update")
     public void update() {
         indexService.updateIndex();
-        log.info("\nIndex updated!");
+        log.trace("\nIndex updated!");
     }
 }
